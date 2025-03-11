@@ -242,73 +242,41 @@ public class Test_array {
 		// 각 자릿수를 가지고 배열을 생성하기	<-- 핵심 목표
 		// n을 가지고 10자리씩 올려가며 나누기
 		
-		int input = 1234;
-		int[] input_arr;
+		Scanner sc = new Scanner(System.in);
+
+		System.out.print("값을 입력하시오 : ");
+		int input = sc.nextInt();
+		
+		//int input = 219;
+		int[] input_arr = new int[1];
 		int sum = 0;
 
 		int n = 1;
 		int length = 1;
-		int dummy= 0;
-		
-		while(true) {
-			if(n == 0) {
+
+		while (true) {
+			if (n == 0) {
 				break;
-			} else if(input/n < 10) {
-				System.out.println("첫번째 반복 - 1");	
-				System.out.println();	
+			} else if (input / n < 10) {
 				// 정수의 최대 자릿수를 구함
-				// 예시 input=219, n=100, length=3
-				
-				input_arr = new int[length];	// 길이 3
-				
-				if(length > 1) {
-					for(int i=1; i<=9; i++) {	// 1자리부터 9자리까지 판별
-						System.out.println("두번재 반복");
-						System.out.println("i : " + i);
-						System.out.println("input : " + input);
-						System.out.println("n : " + n);
-						System.out.println("length : " + length);
-						System.out.println("sum : " + sum);
-						System.out.println();
-						
-						
-						// 1보다 작아지면 break
-						if(n < 1) {
-							break;
-						}			
-						
-						input_arr[]
-						
-						if(input - (i*n) < (n/10)) {		// 219 - 100 < 100		 219 - 200 < 100	21 - 10 < 10 
-							System.out.println("조건 발동!");
-							System.out.println();
-							input_arr[dummy] = i;
-							input = input / 10;
-							n = n / 10;
-							sum = sum + i;
-							break;
-						}
-					}
-				} else {
-					break;
+				// 예시 input=1234, n=1000, length=4
+				input_arr = new int[length]; // 길이 3
+
+				for (int i = 0; i < length; i++) {
+					input_arr[i] = (input % (n * 10)) / n;
+					n = n / 10;
 				}
-				
 			} else {
-				n = n*10;
-				length = length + 1;	
-				System.out.println("첫번째 반복 - 2");	
-				System.out.println("n : " + n);		
-				System.out.println("length : " + length);
-				System.out.println();
-			} 
+				n = n * 10;
+				length = length + 1;
+			}
 		}
 		
-
-		System.out.println();
-		System.out.println();
-		System.out.println("결과 : " + sum);
+		for(int i=0; i<input_arr.length; i++) {
+			sum = sum + input_arr[i];
+		}
 		
-		
+		System.out.println("합계는 : " + sum);
 	}
 }
 
