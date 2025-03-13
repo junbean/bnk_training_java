@@ -1,9 +1,9 @@
 package ex01;
 
+//import java.util.Arrays;
 import java.util.Scanner;
 
 public class Test01 {
-
 	public static void main(String[] args) {
 		// 최초 실행
 		/*
@@ -37,6 +37,32 @@ public class Test01 {
 		// 두개의 숫자 입력 후 대소 비교
 
 		/*
+<<<<<<< HEAD
+		 * System.out.print("a : "); Scanner in_a = new Scanner(System.in); int a =
+		 * in_a.nextInt();
+		 * 
+		 * System.out.print("b : "); Scanner in_b = new Scanner(System.in); int b =
+		 * in_b.nextInt();
+		 * 
+		 * if (a == b) { System.out.print("a와 b의 값은 같다"); } else if (a > b) {
+		 * System.out.print("a가 b보다 값이 크다"); } else { System.out.print("b가 a보다 값이 크다");
+		 * }
+		 */
+
+		// ============================================================
+
+		// 세개의 값 크기 비교 (서로의 값은 중복되지 않음)
+		/*
+		 * int a, b, c; a = 9; b = 6; c = 4;
+		 * 
+		 * if (a > b) { if (a > c) { System.out.print("a가 최대값"); } else {
+		 * System.out.print("c가 최대값"); } } else if (b > c) { System.out.print("b가 최대값");
+		 * } else { System.out.print("c가 최대값"); }
+		 */
+
+		// ========================================================
+
+		/*
 		System.out.print("a : ");
 		Scanner in_a = new Scanner(System.in);
 		int a = in_a.nextInt();
@@ -68,13 +94,14 @@ public class Test01 {
 		// ========================================================
 
 		// 반복문
+		/*
 		int n = 1;
 		while (n <= 5) {
 			System.out.println(n + ". hi");
 			n = n + 1;
 		}
-		
-		
+		*/
+	
 	}
 }
 /*
@@ -90,4 +117,5 @@ public class Test01 {
  * 
  * 램 주기억장치
  * 
+ * <<<<<<< HEAD
  */

@@ -1,5 +1,6 @@
 package ex01;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class Test_array {
@@ -153,149 +154,122 @@ public class Test_array {
 		 * 
 		 */
 
-		
 		/*
-		int[] arr = new int[3];
-		int[] brr = new int[4];
+		 * int[] arr = new int[3]; int[] brr = new int[4];
+		 * 
+		 * Scanner sc = new Scanner(System.in); int input;
+		 * 
+		 * // arr 배열에 값 입력 for(int i=0; i<3; i++) { System.out.print((i+1) +
+		 * "번째 값 입력 : "); input = sc.nextInt(); arr[i] = input; } System.out.println();
+		 * // 빈칸
+		 * 
+		 * System.out.println("arr의 요소 출력"); for(int i=0; i<3; i++) {
+		 * System.out.println("arr["+ i + "] : " + arr[i]); } System.out.println(); //
+		 * 빈칸
+		 * 
+		 * // 현재 arr에는 3번재 인덱스에 값을 넣을수 없다 // arr의 값 brr에 이식 for(int i=0; i<arr.length;
+		 * i++) { brr[i] = arr[i]; }
+		 * 
+		 * // brr을 다시 arr에 넣는다 arr = brr;
+		 * 
+		 * // 주소값 출력 System.out.println("arr, brr 주소 출력"); System.out.println("arr : " +
+		 * arr); System.out.println("brr : " + brr); System.out.println(); // 빈칸
+		 * 
+		 * System.out.print("arr의 요소 출력"); for(int i=0; i<arr.length; i++) {
+		 * System.out.println(arr[i]); } System.out.println(); // 빈칸
+		 * 
+		 * // arr에 마지막 인덱스에 값 삽입 System.out.print("arr의 3번째 인덱스에 값 삽입 : "); input =
+		 * sc.nextInt(); arr[3] = input;
+		 * 
+		 * System.out.println(); // 빈칸 for(int i=0; i<arr.length; i++) {
+		 * System.out.println(arr[i]); }
+		 */
 
-		Scanner sc = new Scanner(System.in);
-		int input;
-		
-		// arr 배열에 값 입력
-		for(int i=0; i<3; i++) {
-			System.out.print((i+1) + "번째 값 입력 : ");
-			input = sc.nextInt();
-			arr[i] = input;
-		}
-		System.out.println();	// 빈칸
+		/*
+		 * 배열 길이 늘이기 int[] arr = new int[3]; int[] brr;
+		 * 
+		 * for(int i=0; i<10; i++) {
+		 * 
+		 * // arr 배열의 길이가 짧은 경우 판별 if(arr.length < (i+1)) { if(arr.length == i) { // brr
+		 * 배열 길이 지정 brr = new int[i+1]; brr = new int[arr.length+1];
+		 * 
+		 * // arr 요소의 값 brr에 이식 for(int j=0; j<arr.length; j++) { brr[j] = arr[j]; }
+		 * 
+		 * // brr 복사 arr = brr; } arr[i] = 10; }
+		 * 
+		 * System.out.println("arr 배열의 값"); for(int i=0; i<arr.length; i++) {
+		 * System.out.println((i+1) + "번째 값 : " + arr[i]); }
+		 */
 
-		System.out.println("arr의 요소 출력");	
-		for(int i=0; i<3; i++) {
-			System.out.println("arr["+ i + "] : " + arr[i]);
-		}
-		System.out.println();	// 빈칸
-		
-		// 현재 arr에는 3번재 인덱스에 값을 넣을수 없다
-		// arr의 값 brr에 이식
-		for(int i=0; i<arr.length; i++) {
-			brr[i] = arr[i];
-		}
-		
-		// brr을 다시 arr에 넣는다
-		arr = brr;
-		
-		// 주소값 출력
-		System.out.println("arr, brr 주소 출력");	
-		System.out.println("arr : " + arr);
-		System.out.println("brr : " + brr);
-		System.out.println();	// 빈칸
-
-		System.out.print("arr의 요소 출력");	
-		for(int i=0; i<arr.length; i++) {
-			System.out.println(arr[i]);	
-		}
-		System.out.println();	// 빈칸
-		
-		// arr에 마지막 인덱스에 값 삽입
-		System.out.print("arr의 3번째 인덱스에 값 삽입 : ");	
-		input = sc.nextInt();
-		arr[3] = input;
-		
-		System.out.println();	// 빈칸
-		for(int i=0; i<arr.length; i++) {
-			System.out.println(arr[i]);	
-		}
-		*/
-
-		
-		/* 배열 길이 늘이기
-		int[] arr = new int[3];
-		int[] brr;
-		
-		for(int i=0; i<10; i++) {
-			
-			// arr 배열의 길이가 짧은 경우 판별			if(arr.length < (i+1)) {
-			if(arr.length == i) {
-				// brr 배열 길이 지정					brr = new int[i+1];
-				brr = new int[arr.length+1];
-					
-				// arr 요소의 값 brr에 이식
-				for(int j=0; j<arr.length; j++) {
-					brr[j] = arr[j];
-				}
-				
-				// brr 복사
-				arr = brr;
-			}
-			arr[i] = 10;
-		}
-		
-		System.out.println("arr 배열의 값");	
-		for(int i=0; i<arr.length; i++) {
-			System.out.println((i+1) + "번째 값 : " + arr[i]);	
-		}
-		*/
-		
-		
 		// 각 자릿수의 값을 더한 값을 구하기
 		// 문제 각 자릿수의 숫자를 읽는 방법이 필요
-		// 각 자릿수를 가지고 배열을 생성하기	<-- 핵심 목표
+		// 각 자릿수를 가지고 배열을 생성하기 <-- 핵심 목표
 		// n을 가지고 10자리씩 올려가며 나누기
-		
+		/*
+		 * Scanner sc = new Scanner(System.in);
+		 * 
+		 * System.out.print("값을 입력하시오 : "); int input = sc.nextInt();
+		 * 
+		 * //int input = 219; int[] input_arr = new int[1]; int sum = 0;
+		 * 
+		 * int n = 1; int length = 1;
+		 * 
+		 * while (true) { if (n == 0) { break; } else if (input / n < 10) { // 정수의 최대
+		 * 자릿수를 구함 // 예시 input=1234, n=1000, length=4 input_arr = new int[length]; // 길이
+		 * 3
+		 * 
+		 * for (int i = 0; i < length; i++) { input_arr[i] = (input % (n * 10)) / n; n =
+		 * n / 10; } } else { n = n * 10; length = length + 1; } }
+		 * 
+		 * for(int i=0; i<input_arr.length; i++) { sum = sum + input_arr[i]; }
+		 * 
+		 * System.out.println("정수의 각 자릿수 합계 : " + sum);
+		 */
+
 		Scanner sc = new Scanner(System.in);
 
-		System.out.print("값을 입력하시오 : ");
-		int input = sc.nextInt();
-		
-		//int input = 219;
-		int[] input_arr = new int[1];
-		int sum = 0;
+		System.out.print("주사위 굴리는 횟수 : ");
+		int roll = sc.nextInt();
+		System.out.println(); // 빈칸
 
-		int n = 1;
-		int length = 1;
+		Random rd = new Random();
+		int rdNum;
 
-		while (true) {
-			if (n == 0) {
-				break;
-			} else if (input / n < 10) {
-				// 정수의 최대 자릿수를 구함
-				// 예시 input=1234, n=1000, length=4
-				input_arr = new int[length]; // 길이 3
+		int[] arr_dice = new int[roll];
+		int[] arr_stats = new int[6];
 
-				for (int i = 0; i < length; i++) {
-					input_arr[i] = (input % (n * 10)) / n;
-					n = n / 10;
-				}
+		// 주사위 던지기
+		for (int i = 0; i < roll; i++) {
+			rdNum = rd.nextInt(6) + 1;
+			arr_dice[i] = rdNum;
+
+			// arr_stats[rdNum - 1]++; // 아래 통계 코드 대체
+		}
+
+		// 주사위 통계
+		for (int i = 0; i < arr_dice.length; i++) { //
+			System.out.println("arr[" + i + "] : " + arr_dice[i]);
+
+			if (arr_dice[i] == 1) {
+				arr_stats[0] = arr_stats[0] + 1;
+			} else if (arr_dice[i] == 2) {
+				arr_stats[1] = arr_stats[1] + 1;
+			} else if (arr_dice[i] == 3) {
+				arr_stats[2] = arr_stats[2] + 1;
+			} else if (arr_dice[i] == 4) {
+				arr_stats[3] = arr_stats[3] + 1;
+			} else if (arr_dice[i] == 5) {
+				arr_stats[4] = arr_stats[4] + 1;
 			} else {
-				n = n * 10;
-				length = length + 1;
+				arr_stats[5] = arr_stats[5] + 1;
 			}
 		}
-		
-		for(int i=0; i<input_arr.length; i++) {
-			sum = sum + input_arr[i];
+
+		System.out.println("주사위 값 통계");
+
+		for (int i = 0; i < arr_stats.length; i++) {
+			System.out.println((i + 1) + "의 횟수 : " + arr_stats[i]);
 		}
-		
-		System.out.println("합계는 : " + sum);
+
 	}
 }
-
-/*
- * if (arr == arr_1) { System.out.println("배열 arr과 arr_1은 같다"); } else {
- * System.out.println("배열 arr과 arr_1은 다르다"); }
- * 
- * if (arr == brr) { System.out.println("배열 arr과 brr은 같다"); } else {
- * System.out.println("배열 arr과 brr은 다르다"); } System.out.println(); // 빈칸
- * 
- * System.out.println(arr); System.out.println(brr); System.out.println(); // 빈칸
- * 
- * // ==== System.out.println("brr, arr 복사"); // 빈칸 arr = brr;
- * 
- * System.out.println(arr); System.out.println(brr); System.out.println(); // 빈칸
- * 
- * for (int i = 0; i < arr.length; i++) { System.out.print(arr[i] + " "); }
- * System.out.println(); // 빈칸
- * 
- * if (arr == brr) { System.out.println("배열 arr과 brr은 같다"); } else {
- * System.out.println("배열 arr과 brr은 다르다"); }
- */
