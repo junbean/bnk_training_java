@@ -71,7 +71,7 @@ public class Test_while_2 {
 
 		int[] arr_input = new int[6];	// 사용자 로또 번호 입력
 		int[] arr_lotto = new int[6];	// 로또 정답 번호
-		int count = 0;					// 6개 자리
+		int count = 0;					// 성공적으로 랜덤값을 넣은 횟수
 		boolean isDuplicate = false;	// 중복인지 야부
 		
 		int input;	// 숫자 입력 변수
@@ -84,7 +84,6 @@ public class Test_while_2 {
 			// 입력값은 1 ~ 10 사이의 값만 가능
 			if(input < 1 || input > 10 ) {
 				System.out.println("올바른 입력값이 아닙니다!");
-				System.out.println();
 				continue;
 			}
 			
@@ -94,7 +93,6 @@ public class Test_while_2 {
 					if(arr_input[i] == input) {
 						isDuplicate = true;
 						System.out.println("중복된 숫자입니다");
-						System.out.println();
 						break;
 					}
 				}
@@ -142,16 +140,16 @@ public class Test_while_2 {
 
 		
 		// 입력 번호 출력
-		System.out.print("입력 번호 출력 : ");
+		System.out.print("입력 번호 출력 : \t");
 		for(int i=0; i<arr_input.length; i++) {
-			System.out.print(arr_input[i] + " ");
+			System.out.print(arr_input[i] + "\t");
 		}
 		System.out.println();	// 빈칸
 		
 		// 로또 번호 출력
-		System.out.print("로또 번호 출력 : ");
+		System.out.print("로또 번호 출력 : \t");
 		for(int i=0; i<arr_lotto.length; i++) {
-			System.out.print(arr_lotto[i] + " ");
+			System.out.print(arr_lotto[i] + "\t");
 		}
 		System.out.println();	// 빈칸
 		System.out.println();	// 빈칸
@@ -159,16 +157,21 @@ public class Test_while_2 {
 		
 		// 복권 당첨 판별
 		System.out.println("정답 확인!");	
+		for(int i=0; i<arr_input.length; i++) {
+			System.out.print((i+1) + "\t");	
+		}
+		System.out.println();	
+		
 		int correct_count = 0;
 		for(int i=0; i<arr_input.length; i++) {
 			//rdNum = rd.nextInt(10) + 1;
 			
 			// 랜덤 숫자 -> 로또 당첨 번호
 			if(arr_input[i] == arr_lotto[i]) {
-				System.out.print("O ");	
+				System.out.print("O\t");	
 				correct_count = correct_count + 1;
 			} else {
-				System.out.print("X ");	
+				System.out.print("X\t");	
 			}
 		}
 		System.out.println();	// 빈칸		
@@ -194,6 +197,9 @@ public class Test_while_2 {
 			break;
 		case 0:
 			System.out.println("맞춘 번호가 없습니다...");
+			break;
+		default:
+			System.out.println("에러입니다.");
 			break;
 		}
 	}
