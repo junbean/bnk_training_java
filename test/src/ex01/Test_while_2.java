@@ -77,7 +77,7 @@ public class Test_while_2 {
 		int input;	// 숫자 입력 변수
 		
 		// 로또 입력
-		while(count <= 5) {
+		while(count < 6) {
 			System.out.print((count + 1) + "번 로또 번호 입력 : ");
 			input = sc.nextInt();
 			
@@ -109,16 +109,12 @@ public class Test_while_2 {
 		
 		
 		// 로또 정답
-		isDuplicate = false;
-		count = 0;	// 랜덤 성
-		while(count<=5) {
+		isDuplicate = false;	// 변수 초기화
+		count = 0;				// 변수 초기화
+		while(count < 6) {
 			rdNum = rd.nextInt(10) + 1;	// 랜덤 생성
 			
 			if(count != 0) {
-				// 중복된 숫자가 있는지 판별
-				// count = 2
-				// arr_lotto = [1, 2]
-				// 등러온 랜덤값 = 1
 				for(int i=0; i<count; i++) {
 					if(arr_lotto[i] == rdNum) {
 						isDuplicate = true;
