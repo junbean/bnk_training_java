@@ -401,9 +401,12 @@ public class Ct_array {
 		*/
 		
 		// 7. Strfry
+		// 완료
+		
 		// strfry는 문자열을 무작위로 재배열하여 새로운 문자열을 만들어냄
 		// 문제는 입력한 한쌍의 문자열이 strfry로 얻어질수 있는것인지 물어보는것
 		// 핵심은 서로 문자열마다 같은 문자를 가지는지 물어보는 문제
+		/*
 		Scanner sc = new Scanner(System.in);
 		int count = 4;
 		
@@ -443,37 +446,118 @@ public class Ct_array {
 			int c = arr_a[i].length();
 			int num_c = c;
 
-			System.out.println(Arrays.toString(sarr_a));
-			System.out.println(Arrays.toString(sarr_b));
 			// r i n g	// g n i r
 			for(int j=0; j<c; j++) {
-				System.out.println(j + " ================== ");
 				for(int z=0; z<c; z++) {
-					System.out.println(z + " ................ ");
-					System.out.println(sarr_a[j] + ", " + sarr_b[z]);		
+					if(sarr_b[z] == "") {
+						continue;
+					}
 					
 					if(sarr_a[j].equals(sarr_b[z])) {
 						sarr_a[j] = "";
 						sarr_b[z] = "";
 						num_c = num_c - 1;
-					} else {
-						
-					}
+					} 
 				}
 			}
 
-			System.out.println(num_c + " ***** ");
 			if(num_c == 0) {
 				System.out.println("Possible");
 			} else {
 				System.out.println("Impossible");	
 			}
 		}
-		
+		*/
 		
 		// 8. 애너그램 만들기
+		Scanner sc = new Scanner(System.in);
+		String a,b;
+		String[] arr_a;
+		String[] arr_b;
+		int count = 0;
+		boolean flag = false;
+		//System.out.print("첫번째 문자 입력 : ");
+		//a = sc.next();	
+		//System.out.print("두번째 문자 입력 : ");
+		//b = sc.next();
 		
+		a = "dared";
+		b = "bread";
+
+		arr_a = a.split("");
+		arr_b = b.split("");
+		
+		System.out.println(Arrays.toString(arr_a));
+		System.out.println(Arrays.toString(arr_b));
+		
+		for(int i=0; i<arr_a.length; i++) {
+			
+			for(int j=0; j<arr_b.length; j++) {
+				if(arr_b[j] == "") {
+					// "" 이면 나감
+					continue;
+				}
+				
+				if(arr_a[i].equals(arr_b[j])) {
+					// 같은거 찾음
+					arr_b[j] = "";
+					flag = true;	// 찾았다는 표시
+				}
+				if(flag == true) {
+					// 같은거 찾으면 점프
+					break;
+				}
+			}
+			
+			if(flag == true) {
+				flag = false;
+				continue;
+			} else {
+				// 찾은게 없다면 +1
+				count = count + 1;
+			}
+		}
+		
+		System.out.println("===========================");
+		System.out.println(Arrays.toString(arr_a));
+		System.out.println(Arrays.toString(arr_b));
+		
+		arr_a = a.split("");
+		arr_b = b.split("");
+
+		for(int i=0; i<arr_b.length; i++) {
+			
+			for(int j=0; j<arr_a.length; j++) {
+				if(arr_a[j] == "") {
+					// "" 이면 나감
+					continue;
+				}
+				
+				if(arr_b[i].equals(arr_a[j])) {
+					// 같은거 찾음
+					arr_a[j] = "";
+					flag = true;	// 찾았다는 표시
+				}
+				if(flag == true) {
+					// 같은거 찾으면 점프
+					break;
+				}
+			}
+			
+			if(flag == true) {
+				flag = false;
+				continue;
+			} else {
+				// 찾은게 없다면 +1
+				count = count + 1;
+			}
+		}
+
+		System.out.println("===========================");
+		System.out.println(Arrays.toString(arr_a));
+		System.out.println(Arrays.toString(arr_b));
+		
+		System.out.println(count);
 		
 	}
-
 }
