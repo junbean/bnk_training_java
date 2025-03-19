@@ -12,46 +12,49 @@ public class Test_al_sort {
 		show(arr_sort);
 		*/
 		
-		//==============================================================================
-		//문자 찾기
-		int[] arr = {1,2,3,4,5,6,7};
-		int n = 6;		// 배열에서 찾고자 하는 값
-		int mid = (int) Math.ceil((double)arr.length/2);	// 배열의 중간값
-		// 6일 경우 -> 4(index=3) < 6 -> [5,6,7] -> 6(index=5) == 6 ->  
+		// ==============================================================================
+		// 문자 찾기
+		int[] arr = { 1, 2, 3, 4, 5, 6, 7 };
+		int n = 5; // 배열에서 찾고자 하는 값
+		int mid = (int) Math.ceil((double) arr.length / 2); // 배열의 중간값
+		// 6일 경우 -> 4(index=3) < 6 -> [5,6,7] -> 6(index=5) == 6 ->
 		// 11일 경우 -> 4(index=3) < 11 -> [5,6,7] -> 6(index=5) < 11 -> 7 < 11
-		
+
 		System.out.println(mid);
 		System.out.println(arr.length);
 		System.out.println("---------");
+		System.out.println("---------");
 		double temp;
 		int count = 0;
+
+		// 1 4 7 9
+		// mid : 2
+		// n = 11
+		// 2 -> 1 -> 0
+		//================
+		// 1 2 3 4 5 6 7 8 9
+		// mid : 5
+		// n : 13
+		// 5 -> 7 -> 8 -> 9
 		
-		while(count<10) {
-			if(n > arr[mid]) {
-				// 7 + 4 -> 11 / 2 -> 5.5
-				temp = mid;
-				temp = (arr.length + temp)/2;
-				mid = (int)Math.ceil(temp);
-				System.out.println("temp : " + temp);
-				System.out.println("n이 큼");
-			} else if(n < arr[mid]) {
-				temp = mid;
-				temp = mid/2;
-				mid = (int) Math.ceil(temp);
+		
+		while (true) {
+			if (n > arr[mid]) {
+				mid = (int) Math.ceil((double)(arr.length + mid) / 2);
+			} else if (n < arr[mid]) {
+				mid = (int) Math.ceil((double)mid / 2);
 				System.out.println("n이 작음");
-			} else if(n == arr[mid]) {
+			} else if (n == arr[mid]) {
 				System.out.println("arr 배열에서 " + n + "의 위치는 " + mid + "입니다.");
 				break;
-			} else if(mid == arr.length) {
+			} else if (mid == arr.length) {
 				System.out.println("arr 배열에서 " + n + "은 존재하지 않습니다.");
 				break;
 			}
 			System.out.println(mid);
 			System.out.println("---------");
-			count = count + 1;
 		}
-		
-		
+
 		// 해당 단어의 인덱스를 출력해야함
 	}
 	
