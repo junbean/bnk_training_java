@@ -35,31 +35,36 @@ public class Test_al_sort {
 		//=====================================================
 		
 
-		/*
 		int[] arr = { 1, 2, 3, 4, 5, 6, 7, 8 };
-		int n = 6; // 배열에서 찾고자 하는 값
-		// int mid = arr.length / 2;
-		int mid = arr.length / 2;
+		int n = 8; // 배열에서 찾고자 하는 값
+		int mid = 0;
+		int left;
+		int right;
 		int count = mid;
+		boolean isExist;
 		
-		while (true) {
-			if (n > arr[mid]) {
-				mid = mid + mid/2;
-			} else if (n < arr[mid]) {
-				mid = mid / 2;
-			} else if (n == arr[mid]) {
-				System.out.println("arr 배열에서 " + n + "의 위치는 " + mid + "입니다.");
+		left = 0;				// 0
+		right = arr.length - 1;		// 7
+		isExist = false;
+		
+		while (left <= right) {
+			mid = (left + right) / 2;
+			if (arr[mid] < n) {
+				left = mid + 1;				
+			} else if (arr[mid] > n) {
+				right = mid - 1;
+			} else {
+				isExist = true;
 				break;
 			}
-
-			if(mid == arr.length || count == 0) {
-				System.out.println("arr 배열에서 " + n + "은 존재하지 않습니다.");
-				break;
-			}		
-
-			count--;	
 		}
-		*/
+		
+		if(isExist == true) {
+			System.out.println("arr 배열에서 " + n + "의 위치는 " + mid + "입니다.");
+		} else {
+			System.out.println("arr 배열에서 " + n + "은 존재하지 않습니다.");
+		}
+		
 		
 		// ======================================================================
 
@@ -155,6 +160,7 @@ public class Test_al_sort {
 		// ======================================================================
 
 		//
+		/*
 		int result = calc(1,3);
 		
 		if(result % 2 == 0) {
@@ -164,6 +170,7 @@ public class Test_al_sort {
 			System.out.println(result);
 			System.out.println("홀수임");
 		}
+		*/
 		// 4
 		// -2
 		// 3
