@@ -8,9 +8,9 @@ public class A {
 	boolean b;
 	int i;
 	int[] arr;
-	int n;
+	public int n;
 
-	A() {
+	public A() {
 		System.out.println("A의 생성자");
 	}
 
