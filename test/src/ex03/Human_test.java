@@ -50,7 +50,7 @@ public class Human_test {
 		
 		// =============================================================
 		// 성별의 수를 알아내기		
-		//calc_gender_amount(arr_human);
+		// calc_gender_amount(arr_human);
 		Human_method hm = new Human_method();
 		hm.calc_gender_amount(arr_human);
 		System.out.println();	// 빈칸
