@@ -1,0 +1,115 @@
+sqlplus \ as sysdba
+
+@c:\temp\test_data_eng_2.sql
+
+show user;
+
+select * from dept;
+
+
+전체 테이블 조회하기
+select table_name from user_tables;
+
+사용자 알아내기
+show user;
+
+출력 라인의 길이 늘리기
+set linesize 200;
+
+출력 페이지 길이 늘리기
+set pagesize 10
+
+특정 속성의 라인 길이 최대 30까지 늘리기
+COLUMN name FORMAT A30
+
+문자로 '(작은따옴표)를 쓰려면 '' 작은따옴표 2개가 필요하다
+it's deptno	->	it''s deptno
+
+컬럼 별칭을 사용하기
+출력될때 컬럼명들은 자동으로 대문자로 출력됨
+컬럼 뒤에 "(큰따옴표)를 쓰면 해당 별칭으로 바뀌어서 출력됨
+select empno "number" 	<-- empno을 number라는 별칭으로 출력시킴
+from emp;
+
+중복된 값을 제거하고 출력
+컬럼앞에 distinct를 붙이면 해당 컬럼의 중복을 제거하고 결과를 출력한다
+select distinct deptno from emp;	<- deptno가 중복인걸 없앰
+select DISTINCT deptno, ename from emp;	<- deptno와 ename을 조합하여 중복인걸 없앰
+참고로 distinct는 한번만 쓸수 있다
+
+
+사용자 변경
+conn 이름/비밀번호
+conn scott/tiger
+
+유저 생성
+create user 이름 IDENTIFIED BY 비밀번호;
+create user green IDENTIFIED BY 1234;
+
+권한 부여
+GRANT CONNECT, RESOURCE TO green;
+
+
+새로운 계정
+green
+1234
+
+롤백하기
+rollback;
+
+//==============================================================
+CRUD
+
+원하는 정보를 출력하는 sql문
+select 컬럼명, 컬럼명, ... from 테이블명	<-- 특정 컬럼을 출력
+select * from 테이블명			<-- 모든 컬럼을 출력
+
+특정 조건을 통한 정보를 출력하는 sql문
+select * from dept where loc = 'CHICAGO';	<-- loc가 문자열로 CHICAGO인 것만 출력한다
+
+테이블 생성
+CREATE TABLE tbl_member(
+	name	VARCHAR2(20),	
+	age	NUMBER(3),
+	gender	CHAR(1),
+	phone	CHAR(13)
+	weight	NUMBER(5,2)	<-	2자리는 소수점, 나머지 3자리는 정수부분
+);
+
+테이블 삭제
+DROP TABLE tbl_member;
+
+데이터 삽입
+INSERT INTO (컬럼명, 컬럼명, ...) VALUES (값1, 값2, ...);
+컬럼명의 순서에 맞게 값이 차례대로 들어간다
+INSERT INTO tbl_member(name, age, gender, phone) VALUES ('홍길동', 20, 'm', '010-1234-4321');
+모든 컬럼에 데이터 넣기
+INSERT INTO tbl_member VALUES ('홍길동', 20, 'm', '010-1234-4321');
+
+데이터 수정
+전체 데이터 수정
+update 테이블명 set 컬럼명 = 값, 컬럼명 = 값;	<--	컬럼에 해당하는 값으로 수정한다	
+update tbl_member set age = 25;		<-- 	이러면 전체 age 컬럼의 값이 25가 된다
+조건을 포함한 데이터 수정
+update 테이블명 set 컬럼명 = 값 where 컬럼명 = 값;	<-	조건을 포함한 수정쿼리문이 된다
+update tbl_member set age=23 where name='홍길동';	<-	홍길동만 23살로 나이를 수정
+
+
+데이터 삭제
+전체 레코드 삭제
+delete from 테이블명;		<-- 전체 레코드를 삭제
+delete from tbl_member;		<-- tbl_member의 전체 레코드 삭제
+특정 레코드 삭제
+delete from 테이블명 where 컬럼명=값	<-- 테이블의 특정한 조건을 통해서 삭제
+delete from tbl_member where name='홍길순';	<-- 이름이 홍길순인 사람의 레코드를 삭제
+
+
+
+
+
+
+
+
+
+
+
