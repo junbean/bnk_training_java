@@ -1,5 +1,7 @@
 package ex09;
 
+import java.util.Scanner;
+
 public class Tv_test {
 	public static void main(String[] args) {
 		/*
@@ -48,6 +50,7 @@ public class Tv_test {
 			arr_tv[i].powerOff();
 		}*/
 		
+		/*
 		BeanFactory factory = new BeanFactory();
 		TV tv3 = factory.getBean(1);	// 1 -> 삼성, 2 -> Lg 
 		tv3.powerOn();
@@ -70,6 +73,43 @@ public class Tv_test {
 			tv5.volumeDown();
 			tv5.powerOff();
 		}
+		*/
+		
+		// 추가 문제
+		// 매개변수에 "samsung"이 주입되면 삼성 TV
+		// 매개변수에 "lg"가 주입되면 LgTV가 적용되게 수정
+		
+		/*
+		BeanFactory factory = new BeanFactory();
+		TV tv5 = factory.getBean("삼성");
+		tv5.powerOn();
+		tv5.volumeUp();
+		tv5.volumeDown();
+		tv5.powerOff();
+		
+		TV tv6 = factory.getBean("lg");
+		tv6.powerOn();
+		tv6.volumeUp();
+		tv6.volumeDown();
+		tv6.powerOff();
+		*/
+		
+		
+		BeanFactory factory = new BeanFactory();
+		Scanner sc = new Scanner(System.in);
+		System.out.print("회사를 입력하세요 : ");
+		String brand = sc.next();
+
+		TV tv7 = factory.getBean(brand);
+		tv7.powerOn();
+		tv7.volumeUp();
+		tv7.volumeDown();
+		tv7.powerOff();
+	
+		
+		
+		
+		sc.close();
 	}
 }
 
