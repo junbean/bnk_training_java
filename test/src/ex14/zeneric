@@ -1,0 +1,217 @@
+제네릭이란?
+	클래스나 메서드를 정의할 때, 구체적인 타입을 지정하지 않고 
+	<T>와 같은 타입 파라미터를 사용하여, 
+	다양한 타입에 대해 재사용 가능하도록 하는 기능이다
+	
+	쉽게 말하자면 처음 만들땐 무슨 자료형을 넣을지는 모르지만
+	나중에 정할수 있는 기능이다. 그래서 int, float, long을 
+	넣을수 있는 형태만 있는 박스라고 보면된다.
+	
+왜 제너릭을 써야 하나?
+	제네릭을 사용하면
+		- 타입 안정성을 보장
+		- 형변환 업이 타입을 안전하게 사용 가능
+		- 코드 재사용성 증가
+	제네릭을 사용하지 않으면
+		- 매번 형변환(casting)해야 해서 불편
+		- 타입이 맞지 않으면 런타임 오류 발생
+	
+	Object를 사용하면 모든 타입을 담을 수 있지만, 
+	꺼낼때마다 넣은 타입이 맞는건지 확인을 위해서 형변환을 해야한다
+	하지만 제네릭은 처음부터 문자열을 사용한다고 정한다면 
+	나중에 형변환 할 필요가 없어진다
+	
+
+제네릭 클래스 예시
+	제네릭 클래스는 클래스 정의 시 타입 파라미터를 사용하여 
+	다양한 타입의 객체를 저장하거나 반환할 수 있도록 한다.
+	//=============================================================//
+	// 제네릭이 아닌 경우
+	public class Box {
+	    private Object item;
+	
+	    public void set(Object item) {
+	        this.item = item;
+	    }
+	
+	    public Object get() {
+	        return item;
+	    }
+	}
+	
+	// 사용
+	Box box = new Box();
+	box.set("Hello");
+	String text = (String) box.get();	// 강제 형변환 필요
+	//=============================================================//
+	// 제네릭 클래스 - 1
+	public class Box<T> {
+	    private T item;	
+	    	
+	    public void set(T item) { 
+	    	this.item = item; 
+	    }
+	    
+	    public T get() { 
+	    	return item; 
+	    }
+	}
+	
+	// 사용
+	Box<String> box = new Box<>();
+	box.set("hello");
+	box.set(123)	// 컴파일 에러
+	
+	// 코드 재사용성
+	Box<String> stringBox = new Box<>();	
+	Box<Integer> intBox = new Box<>();
+	Box<Double> doubleBox = new Box<>();
+	
+	//=============================================================//
+	// 제네릭 클래스 - 2
+	public class Pair<K, V> {
+	    private K key;
+	    private V value;
+	
+	    public Pair(K key, V value) {
+	        this.key = key;
+	        this.value = value;
+	    }
+	
+	    public K getKey() { return key; }
+	    public V getValue() { return value; }
+	}
+	// 사용
+	Pair<String, Integer> student = new Pair<>("Alice", 100);
+	//=============================================================//
+
+
+제네릭 메서드
+	제네릭 메서드는 메서드 선언부에 타입 파라미터를 정의하여
+	다양한 타입에 대해 동작할 수 있게 한다
+	
+	클래스 전체를 제네릭으로 안 하고, 메서드만 제네릭으로 해도 되나?
+		된다
+		클래스 전체에 제네릭이 필요 없고, 메서드만 유연하게 사용하고 싶을 때 아주 유용
+	
+	쉽게 말하자면 매개변수가 무슨 타입이든 다 처리하는 만능 메서드를 만들수 있다
+	//=============================================================//
+	// 제네릭 메서드 - 기본 구조
+	<T> 리턴타입 메서드이름(T 매개변수) {
+	    // ...
+	}
+	//=============================================================//
+	// 제네릭 메서드 - 1 - 입력된 값을 그대로 반환하는 메서드
+	public class Util {
+	    public static <T> T echo(T input) {
+	        return input;
+	    }
+	}
+	
+	// 사용
+	String str = Util.echo("Hello");
+	Integer num = Util.echo(123);
+	Double dbl = Util.echo(3.14);	
+	//=============================================================//
+	// 제네릭 메서드 - 2 - 메서드의 반환값이 없는 경우
+	public class Util {
+	    public static <T> void printItem(T item) {
+	        System.out.println(item);
+	    }
+	}
+	
+	// 사용
+	Util.printItem("안녕!");
+	Util.printItem(123);	
+	//=============================================================//
+	// 제네릭 메서드 - 3 - 두 값을 비교해서 같은지 확인하는 메서드
+	public class Util {
+	    public static <T> boolean isEqual(T a, T b) {
+	        return a.equals(b);
+	    }
+	}
+	
+	// 사용
+	boolean result1 = Util.isEqual("hi", "hi");  // true
+	boolean result2 = Util.isEqual(10, 20);      // false
+	//=============================================================//
+	// 제네릭 메서드 - 4 - 여러 값을 배열로 만들어주는 메서드
+	public class Util {
+	    public static <T> T firstElement(T[] array) {
+	        return array.length > 0 ? array[0] : null;
+	    }
+	}
+
+	
+	// 사용
+	String[] names = {"Alice", "Bob"};
+	String first = Util.firstElement(names);  // "Alice"
+	//=============================================================//
+	// 제네릭 메서드 - 5 - 여러 값을 배열로 만들어주는 메서드	
+	public class Util {
+	    @SafeVarargs
+	    public static <T> T[] makeArray(T... elements) {
+	        return elements;
+	    }
+	}
+	
+	// 사용
+	String[] arr1 = Util.makeArray("a", "b", "c");
+	Integer[] arr2 = Util.makeArray(1, 2, 3, 4);
+	//=============================================================//
+	// 제네릭 메서드 - 6 - 제네릭 타입의 제약
+	public class Util {
+	    public static <T extends Number> double sum(T a, T b) {
+	        return a.doubleValue() + b.doubleValue();
+	    }
+	}
+
+	// 사용
+	double result = Util.sum(10, 20);         // 30.0
+	double result2 = Util.sum(3.5f, 2.2f);    // 5.7
+	//=============================================================//
+	// 제네릭 메서드 - 7 - 타입 추론을 활용한 제네릭 메서드
+	public class Util {
+	    public static <T> void printType(T item) {
+	        System.out.println("타입: " + item.getClass().getSimpleName());
+	        System.out.println("값: " + item);
+	    }
+	}
+
+	// 사용
+	Util.printType("Hello");   // 타입: String
+	Util.printType(123);       // 타입: Integer
+	Util.printType(true);      // 타입: Boolean
+	//=============================================================//
+	
+	
+그렇다면 제네릭 배열은 되나?
+	제네릭 배열은 안된다
+	
+	그러면 왜 안되나?
+		자바는 컴파일 시 제네릭 타입 정보를 제거하기 때문에
+		new T[]와 같은 코드는 허용되지 않습니
+		
+		쉽게 말하자면
+		자바는 T가 뭔지 컴파일 이후엔 기억하지 못한다
+		그러니까 "나 T인데, 크기 3짜리 배열 만들래" 라고 하면
+	
+	//=============================================================//
+	실제 코드 - 실패함
+		T[] arr = new T[10]; // 안됨
+	//=============================================================//
+	해결 방법 - 1
+		T[] arr = (T[]) new Object[10]; // 가능
+	해결 방법 - 2
+		public MyArray(Class<T> clazz) {
+		    arr = (T[]) Array.newInstance(clazz, 10);
+		}
+	//=============================================================//
+	
+	
+	
+// 참고
+// https://chatgpt.com/c/67f383a2-d3cc-800a-b605-e92a1e33bdea
+	
+	
+	
