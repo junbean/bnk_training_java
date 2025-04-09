@@ -141,12 +141,15 @@ public class LoginTest {
 			int select = sc.nextInt();
 			
 			if (select == 1) {
-				findUser(users);
+				System.out.println("아무것도 안하기.");
 			} else if (select == 2) {
-				
+				System.out.println("로그아웃 하였습니다");	
+				break;
 			} else {
-				System.out.print("행동을 고르세요(1:[아무것도 안하기] 2:[로그아웃]) :");	
+				System.out.println("올바르지 않은 입력입니다..");	
 			}
+			
+			System.out.println();	// 빈칸
 		}
 	}
 	

@@ -58,14 +58,14 @@
 	}
 	
 	// 사용
-	Box<String> box = new Box<>();
-	box.set("hello");
-	box.set(123)	// 컴파일 에러
-	
-	// 코드 재사용성
-	Box<String> stringBox = new Box<>();	
-	Box<Integer> intBox = new Box<>();
-	Box<Double> doubleBox = new Box<>();
+	Box<String> strBox = new Box<>();
+	strBox.set("Hello");
+	System.out.println(strBox.get()); 	// Hello
+	strBox.set(123)						// 컴파일 에러
+		
+	Box<Integer> intBox = new Box<>();	// 코드 재사용성
+	intBox.set(123);
+	System.out.println(intBox.get()); 	// 123
 	
 	//=============================================================//
 	// 제네릭 클래스 - 2
