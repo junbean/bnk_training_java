@@ -1,8 +1,10 @@
-package ex01;
+package ex04;
 
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Scanner;
+
+import ex01.Member;
 
 public class MemberUtil {
 	public void createUser(Statement stmt, Member currentUser) throws SQLException {

@@ -1,10 +1,10 @@
-package ex01;
+package ex03;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class DBConn2 {
+public class DBConn {
 	public static Connection getConnection() {
 		Connection conn = null;
 
@@ -28,3 +28,4 @@ public class DBConn2 {
 		return conn;
 	}
 }
+

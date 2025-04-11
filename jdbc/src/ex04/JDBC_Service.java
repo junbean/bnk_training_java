@@ -1,12 +1,13 @@
-package ex01;
+package ex04;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+
+import ex01.Member;
 
 public class JDBC_Service {
 	private Connection conn;
@@ -94,8 +95,9 @@ public class JDBC_Service {
 		
 		String query = "SELECT * FROM tbl_member";	 
 		
-		ResultSet rs = stmt.executeQuery(query);	
+		// ResultSet rs = stmt.executeQuery(query);	
 		
+		rs = stmt.executeQuery(query);	
 		List<Member> list = new ArrayList<>();
 		
 		while(rs.next()) {
@@ -137,8 +139,9 @@ public class JDBC_Service {
 		String query = "SELECT * FROM tbl_member";	// 실행할 쿼리문
 		
 		// SELECT 쿼리를 실행해서 데이터베이스의 결과를 ResultSet 객체로 반환
-		ResultSet rs = stmt.executeQuery(query);	
 		
+		// ResultSet rs = stmt.executeQuery(query);	
+		rs = stmt.executeQuery(query);	
 		rs.next();	
 		
 		Member member = new Member();
@@ -198,10 +201,10 @@ public class JDBC_Service {
 		
 		
 		// 쿼리문
-		String query = "DELETE FROM tbl_member WHERE id = '"
+		String query = 
+				"DELETE FROM tbl_member WHERE id = '"
 				+ member.getId() + "'";
 		int result = stmt.executeUpdate(query);
-		
 		return result;
 	}
 	

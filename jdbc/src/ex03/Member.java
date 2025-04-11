@@ -1,4 +1,4 @@
-package ex01;
+package ex03;
 
 public class Member {
 	// private static int cnt;
