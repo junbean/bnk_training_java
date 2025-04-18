@@ -9,7 +9,7 @@ public class StreamSortedTest {
 		List<String> list = Arrays.asList("홍길동", "멀린", "해리포터");
 
 		list.stream()	// list 스트림 생성
-			.sorted()	// 정렬
+			.sorted()	// 정렬(중간연산)
 			.forEach(n -> System.out.print(n + "\t"));	// 요소를 하나씩 꺼내서 소비함(최종 연산)
 
 		System.out.println();
